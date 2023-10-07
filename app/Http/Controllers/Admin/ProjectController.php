@@ -41,8 +41,7 @@ class ProjectController extends Controller
             'language' => 'nullable|string',
         ]);
 
-        $data['language'] = json_encode([$data['language']]);
-
+        $data['language'] = explode(',', $data['language']);
 
         $project = Project::create($data);
                                                 //Il ::create($data) lo vado ad utilizzare al posto di 
@@ -70,7 +69,7 @@ class ProjectController extends Controller
             'language' => 'nullable|string',
         ]);
 
-        $data['language'] = json_encode([$data['language']]);
+        $data['language'] = explode(',', $data['language']);
 
         $project->update($data);
 

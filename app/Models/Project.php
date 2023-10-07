@@ -13,11 +13,13 @@ class Project extends Model
     protected $casts = [
 
         'release' => 'date',
+        'language' => 'array'
     ];
 
     protected $fillable = [
         'title',
         'description',
+        'release',
         'thumb',
         'link',
         'language',

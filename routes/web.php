@@ -29,24 +29,27 @@ Route::middleware('auth','verified')
     ->prefix('admin')
     ->name('admin.')
     ->group(function(){
+        //Utilizziamo resource per assegnare in automatico le rotte
+        Route::resource("projects", ProjectController::class);  
 
+        /////////////////////////// ALTRIMENTI ///////////////////
+        
+    // //Route per il Create
+    // Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
+    // Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
     
-    //Route per il Create
-    Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
-    Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
+    // //Route per il Read
+    // Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+    // Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
     
-    //Route per il Read
-    Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
-    Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
+    // //Route per l'Edit
+    // Route::get('/{project}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
+    // //Route per l'Update
+    // Route::put('/{project}', [ProjectController::class, 'update'])->name('projects.update');
     
-    //Route per l'Update
-    Route::put('/{project}', [ProjectController::class, 'update'])->name('projects.update');
+    // //Route per il Delete
+    // Route::delete('/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
     
-    //Route per il Delete
-    Route::delete('/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
-    
-    //Route per l'Edit
-    Route::get('/{project}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
     
 });
     
