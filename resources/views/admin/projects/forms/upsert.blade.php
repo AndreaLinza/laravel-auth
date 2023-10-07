@@ -58,5 +58,6 @@
 
 
     <button class="btn btn-primary">Salva</button>
+    <a class="btn btn-primary" href="/admin/projects">Indietro</a>
 
 </form>
