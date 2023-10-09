@@ -22,9 +22,7 @@
 
 <body>
     <div id="app">
-
-
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar nav-position navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel">
@@ -71,7 +69,7 @@
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right z-3" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ url('admin') }}">{{__('Dashboard')}}</a>
                                 <a class="dropdown-item" href="{{ url('admin/profile') }}">{{__('Profile')}}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

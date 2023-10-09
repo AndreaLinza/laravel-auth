@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->text('thumb');
+            $table->text('thumb')->nullable();
+            $table->string('slug')->unique();
             $table->string('link');
             $table->date('release');
-            $table->json('language');
+            $table->json('language')->nullable();
             $table->timestamps();
         });
     }
