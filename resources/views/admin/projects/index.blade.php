@@ -13,7 +13,7 @@
                     <div class="col">
                         <a class="nav-link" href="{{ route('admin.projects.show', $project->slug) }}">
                             <div class="card h-100">
-                                <img src="{{ $project->thumb }}" class="card-img-top h-100" alt="...">
+                                <img src="{{ asset('storage/'. $project->thumb) }}" class="card-img-top h-100" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $project->title }}</h5>
                                     <p class="card-text">{{ $project->short_description }}</p>

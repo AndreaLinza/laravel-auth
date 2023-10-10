@@ -32,9 +32,9 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string',
+            'title' => 'required|string|max:50',
             'description' => 'required|string',
-            'thumb' => 'nullable|string',
+            'thumb' => 'nullable|image|max:1024',
             'release' => 'required|date',
             'link' => 'required|string',
             'language' => 'nullable|string',
@@ -52,8 +52,8 @@ class StoreProjectRequest extends FormRequest
             'title.required' => 'E\' necessario specificare un titolo della repository',
             'title.max' => 'Mi sembra che il titolo sia un po\' troppo lungo',
             'description.required' => 'Di cosa parla questa repository?',
-            'thumb.required' => 'E\' difficile usare così tanto l\'immaginazione.',
-            'thumb.max' => 'Stai scrivendo la divina commedia?',
+            'thumb.required' => 'E\' richiesta un\'immagine',
+            'thumb.max' => 'L\'immagine sembra essere troppo lunga, inserire un\'immagine di max 5MB',
             'release'=> 'Selezionare la data di pubblicazione della repo',
             'link' => 'Inserire il link per la repo'
         ];

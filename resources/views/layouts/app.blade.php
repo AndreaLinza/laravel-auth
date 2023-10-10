@@ -22,7 +22,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar nav-position navbar-expand-md navbar-dark bg-dark shadow-sm">
+        <nav class="navbar nav-position navbar-expand-md shadow-sm">{{--  navbar-dark bg-dark --}}
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel">

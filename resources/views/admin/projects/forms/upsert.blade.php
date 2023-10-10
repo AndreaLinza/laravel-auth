@@ -1,4 +1,4 @@
-<form action="{{ $action }}" method="POST">
+<form action="{{ $action }}" method="POST" enctype="multipart/form-data"> {{-- questo è essenziale affinchè il nostro form possa ricevere il file sottoforma di file  --}}
     @csrf()
     @method($method)
 
@@ -13,6 +13,8 @@
 
     @endif
 
+    {{-- Title --}}
+
     <div class="mb-3">
         <label for="title">Titolo Repo</label>
         <input type="text" name="title" value="{{ old('title', $project?->title) }}"
@@ -21,6 +23,8 @@
             <div class="invalid_feedback">{{ $message }}</div>
         @enderror
     </div>
+
+    {{-- Description --}}
 
     <div class="mb-3">
         <label for="description">Descrizione</label>
@@ -31,15 +35,20 @@
         @enderror
     </div>
 
+    {{-- Thumb --}}
+
     <div class="mb-3">
         <label for="thumb">Immagine</label>
-        <input type="text" name="thumb" value="{{ old('thumb', $project?->thumb) }}"
+        <img src="{{asset('storage/' . $project?->thumb )}}" alt="thumbnail" class="img-thumbnail" style="width:100px; aspect-ratio:1/1">
+        <input type="file" accept="image/*" name="thumb" {{--value="{{ old('thumb', $project?->thumb) }}"    nei type='file' il value non esiste           --}}
             class="form-control @error('thumb') is-invalid @enderror" id="thumb"
             placeholder="Inserisci il link dell'immagine">
         @error('thumb')
             <div class="invalid_feedback">{{ $message }}</div>
         @enderror
     </div>
+
+    {{-- Release  --}}
 
     <div class="mb-3">
         <label for="release">Data Rilascio</label>
@@ -51,6 +60,8 @@
         @enderror
     </div>
 
+    {{-- Link --}}
+
     <div class="mb-3">
         <label for="link">Link</label>
         <input type="text" name="link" value="{{ old('link', $project?->link) }}"
@@ -60,6 +71,8 @@
             <div class="invalid_feedback">{{ $message }}</div>
         @enderror
     </div>
+
+    {{-- Language --}}
 
     <div class="mb-3">
         <label for="language">Linguaggi</label>
@@ -73,7 +86,7 @@
 
 
 
-    <button class="btn btn-primary">Salva</button>
-    <a class="btn btn-primary" href="/admin/projects">Indietro</a>
+    <button type="submit" class="btn btn-primary">Salva</button>
+    <a class="btn btn-primary" href="{{ route('admin.projects.index') }}">Indietro</a>
 
 </form>
