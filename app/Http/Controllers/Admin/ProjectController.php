@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -91,7 +92,7 @@ class ProjectController extends Controller
 
     // ----------Update Section-------- //
 
-    public function update(StoreProjectRequest $request, $slug){
+    public function update(UpdateProjectRequest $request, $slug){
         $project = Project::where('slug', $slug)->firstOrFail();
 
         $data = $request->validated();

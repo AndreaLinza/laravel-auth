@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class StoreProjectRequest extends FormRequest
+class UpdateProjectRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -34,12 +34,13 @@ class StoreProjectRequest extends FormRequest
         return [
             'title' => 'required|string|max:50',
             'description' => 'required|string',
-            'thumb' => 'required|image|max:5120',
+            'thumb' => 'nullable|image|max:5120',
             'release' => 'required|date',
             'link' => 'required|string',
             'language' => 'nullable|string',
         ];
     }
+
 
     /**
      * Get the error messages for the defined validation rules.
@@ -52,7 +53,7 @@ class StoreProjectRequest extends FormRequest
             'title.required' => 'E\' necessario specificare un titolo della repository',
             'title.max' => 'Mi sembra che il titolo sia un po\' troppo lungo',
             'description.required' => 'Di cosa parla questa repository?',
-            'thumb.required' => 'E\' richiesta un\'immagine',
+            //'thumb.required' => 'E\' richiesta un\'immagine',
             'thumb.max' => 'L\'immagine sembra essere troppo lunga, inserire un\'immagine di max 5MB',
             'release'=> 'Selezionare la data di pubblicazione della repo',
             'link' => 'Inserire il link per la repo'

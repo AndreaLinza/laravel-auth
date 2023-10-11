@@ -44,7 +44,7 @@
             class="form-control @error('thumb') is-invalid @enderror" id="thumb"
             placeholder="Inserisci il link dell'immagine">
         @error('thumb')
-            <div class="invalid_feedback">{{ $message }}</div>
+            <div class="invalid_feedback text-danger">L'immagine sembra essere troppo lunga, inserire un'immagine di max 5MB</div>
         @enderror
     </div>
 
